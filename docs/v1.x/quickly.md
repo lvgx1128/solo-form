@@ -41,7 +41,6 @@ yarn add solo-form
 ```tsx
 import React from 'react';
 import { SoloForm, useForm } from 'solo-form';
-console.log('🚀 ~ file: quickly.md ~ line 44 ~ useForm', require('solo-form'));
 
 const schema = {
   type: 'object',

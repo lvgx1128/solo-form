@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "types": ["jest"],
+    "strict": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      // 路径映射，与 baseUrl 关联
+      "@/*": ["./src/*"],
+      "solo-from": [".src/index.ts"]
+    },
+  }
+}

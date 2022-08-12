@@ -1,29 +1,29 @@
 import React from 'react';
 import classnames from 'classnames';
-import type { IFieldItem, IRule, IStore } from '@/@types';
+import type { FieldItemProps, RuleProps, StoreProps } from '@/@types';
 import { useStore, useAction } from './hooks/context';
 import FieldItem from './FieldItem';
 import { set } from 'lodash-es';
-import { IAction } from '../@types/index';
+import { ActionProps } from '../@types/index';
 
-interface IIFieldItem extends IFieldItem {
+interface IFieldItemProps extends FieldItemProps {
   isRequired?: boolean;
 }
 
 export default function FieldRender(): JSX.Element {
-  const { schema } = useStore() as IStore;
-  const { setRules } = useAction() as IAction;
+  const { schema } = useStore() as StoreProps;
+  const { setRules } = useAction() as ActionProps;
   const flatten = schema?.properties ?? {};
   const formProps = schema?.formProps ?? { display: 'inline' };
   // 表单item上绑定的属性
   const itemProps = schema?.itemProps ?? {};
   // 解析schema
-  const formRules: Record<string, IRule[]> = {};
-  const fieldList = Object.keys(flatten).reduce((prev: IIFieldItem[], item: string) => {
-    const fieldItem: IIFieldItem = { ...itemProps, ...flatten[item], fieldKey: item };
+  const formRules: Record<string, RuleProps[]> = {};
+  const fieldList = Object.keys(flatten).reduce((prev: IFieldItemProps[], item: string) => {
+    const fieldItem: IFieldItemProps = { ...itemProps, ...flatten[item], fieldKey: item };
     const { rules } = fieldItem;
     if (rules) set(formRules, fieldItem.fieldKey, rules);
-    const index: number = rules?.findIndex((rule: IRule) => rule?.required) ?? -1;
+    const index: number = rules?.findIndex((rule: RuleProps) => rule?.required) ?? -1;
     fieldItem.isRequired = index > -1;
     if(!fieldItem.hide) prev.push(fieldItem);
     return prev;
@@ -31,7 +31,7 @@ export default function FieldRender(): JSX.Element {
   setRules?.(formRules);
   return (
     <div className="solo-form-container">
-      {fieldList.map((item: IIFieldItem) => {
+      {fieldList.map((item: IFieldItemProps) => {
         return (
           <div
             key={item.fieldKey}

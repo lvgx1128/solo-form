@@ -61,7 +61,7 @@ filePath: null
 ```tsx
 import React from 'react';
 import dayjs from 'dayjs';
-import { SoloForm, useForm } from 'solo-form';
+import SoloForm, { useForm } from 'solo-form';
 import { Image } from 'antd';
 
 const schema = {

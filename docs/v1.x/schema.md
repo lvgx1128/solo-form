@@ -27,10 +27,10 @@ schema 是表单的基本结构展示和校验的必要信息
 | title | schema 标题 用于标记 没有实际作用 | `否` | `string` |
 | description | schema 描述 用于标记 没有实际作用 | `否` | `string` |
 | formProps | form 表单属性 | `否` | `Record<string, any>` |
-| itemProps | 表单每个 item 的公共属性 会被的 item 上字段值覆盖 | `否` | `ISchemaBase` |
-| properties | 表单每个 item 的公共属性 会被的 item 上字段值覆盖 | `否` | `Record<string, ISchemaBase>` |
+| itemProps | 表单每个 item 的公共属性 会被的 item 上字段值覆盖 | `否` | `SchemaBaseProps` |
+| properties | 表单每个 item 的公共属性 会被的 item 上字段值覆盖 | `否` | `Record<string, SchemaBaseProps>` |
 
-### `ISchemaBase字段解析`
+### `SchemaBaseProps字段解析`
 
 | 字段 | 描述 | 是否必填 | 类型 | 默认值 |
 | --- | --- | --- | --- | --- |
@@ -45,10 +45,10 @@ schema 是表单的基本结构展示和校验的必要信息
 | bordered | item 组件是否有边框 | `否` | `boolean` | `true` |
 | width | item 组件自定义宽度 | `否` | `string｜number` | `100px ｜ 100%` |
 | props | item 组件的内置属性 支持 antd 组件的所有属性，如果和上述属性冲突会覆盖 | `否` | `Record<string, any>` | `--` |
-| rules | item 组件的表单校验规则 | `否` | `IRule[]` | `--` |
+| rules | item 组件的表单校验规则 | `否` | `RuleProps[]` | `--` |
 | widget | item 自定义组件 | `否` | `React.FC` | `--` |
 
-### `IRule字段解析`
+### `RuleProps字段解析`
 
 | 字段 | 描述 | 是否必填 | 类型 | 默认值 |
 | --- | --- | --- | --- | --- |

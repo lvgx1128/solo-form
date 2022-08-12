@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { IFieldItem, IAction } from '@/@types/index';
+import type { FieldItemProps, ActionProps } from '@/@types/index';
 import dayjs from 'dayjs';
 import zhCN from 'antd/es/date-picker/locale/zh_CN';
 import DatePicker from './DatePicker';
@@ -9,7 +9,7 @@ import { validateRule } from '../utils';
 import { useUpdateLayoutEffect } from '../hooks/useUpdateLayoutEffect';
 import Tips from './Tips';
 
-export default function DatePickerField({ ...fieldItem }: IFieldItem): JSX.Element {
+export default function DatePickerField({ ...fieldItem }: FieldItemProps): JSX.Element {
   const { formData, ruleResult } = useStore();
   // 获取相关 useForm中方法 执行相关操作
   const { watch, setData, getFieldRules } = useAction();

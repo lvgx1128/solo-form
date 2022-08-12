@@ -1,18 +1,19 @@
-export type ISchemaBase = {
+type SchemaFormatProps =  | 'input'
+| 'textarea'
+| 'datePicker'
+| 'dateRange'
+| 'checkbox'
+| 'select'
+| 'radio'
+| 'switch'
+| 'rate'
+| 'custom';
+
+export type SchemaBaseProps = {
   label: string;
-  format:
-    | 'input'
-    | 'textarea'
-    | 'datePicker'
-    | 'dateRange'
-    | 'checkbox'
-    | 'select'
-    | 'radio'
-    | 'switch'
-    | 'rate'
-    | 'custom';
+  format: SchemaFormatProps;
   className?: string;
-  rules?: IRule[];
+  rules?: RuleProps[];
   options?: { label: string | number; value: string | number }[];
   bind?: string[];
   width?: string | number;
@@ -24,32 +25,25 @@ export type ISchemaBase = {
   bordered?: boolean;
   labelTips?: string;
 };
-export type IUpdateSchemaBase = Partial<ISchemaBase>;
-export type ISchema = {
+
+export type UpdateSchemaBaseProps = Partial<SchemaBaseProps>;
+
+export type SchemaProps = {
   type: 'object';
   title?: string;
   description?: string;
   formProps?: { display: 'block' | 'inline' };
-  itemProps?: ISchemaBase;
-  properties: Record<string, ISchemaBase>;
+  itemProps?: SchemaBaseProps;
+  properties: Record<string, SchemaBaseProps>;
 };
-export type IFieldItem = {
+
+export type FieldItemProps = {
   // form 中 每一个item的唯一表示
   fieldKey: string;
   label: string;
-  format:
-    | 'input'
-    | 'textarea'
-    | 'datePicker'
-    | 'dateRange'
-    | 'checkbox'
-    | 'select'
-    | 'radio'
-    | 'switch'
-    | 'rate'
-    | 'custom';
+  format: SchemaFormatProps;
   isRequired?: boolean;
-  rules?: IRule[];
+  rules?: RuleProps[];
   options?: { label: string | number; value: string | number }[];
   className?: string;
   width?: string | number;
@@ -64,49 +58,43 @@ export type IFieldItem = {
   hide?: boolean;
 };
 
-export type IAction = {
-  setSchema?: (param: Record<string, IUpdateSchemaBase> | ISchema) => void;
+export type ActionProps = {
+  setSchema?: (param: Record<string, UpdateSchemaBaseProps> | SchemaProps) => void;
   setData?: (param: Record<string, any>) => void;
   getData?: () => Record<string, any>;
   getDataByKey?: (param: string) => any;
-  getFieldRules?: (param: string) => IRule[];
+  getFieldRules?: (param: string) => RuleProps[];
   watch?: Record<string, (value: any, key?: string) => any>;
   validateField?: (key: string, data: any) => void;
-  setRules?: (param: Record<string, IRule[]>) => void;
+  setRules?: (param: Record<string, RuleProps[]>) => void;
   clearData?: () => void;
 };
 
-export type IStore = {
-  schema?: ISchema;
+export type StoreProps = {
+  schema?: SchemaProps;
   formData?: Record<string, any>;
   ruleResult?: Record<string, any>;
 };
 
-export type IFormInstance = {
-  setSchema: (param: Record<string, IUpdateSchemaBase> | ISchema) => void;
+export type FormInstanceProps = {
+  setSchema: (param: Record<string, UpdateSchemaBaseProps> | SchemaProps) => void;
   removeSchemaByKey: (param: string) => void;
   setData: (param: Record<string, any>) => void;
   setDataByKey: (key: string, param: Record<string, any>) => void;
   getData: () => Record<string, any>;
   getDataByKey: (key: string) => void;
-  getFieldRules?: (param: string) => IRule[];
+  getFieldRules?: (param: string) => RuleProps[];
   clearData: () => void;
-  setRules: (param: Record<string, IRule[]>) => void;
+  setRules: (param: Record<string, RuleProps[]>) => void;
   validateFields: (keys: string[]) => Promise<{ validate: boolean; data: Record<string, any> }>;
-  schema?: ISchema;
+  schema?: SchemaProps;
   formData?: Record<string, any>;
   ruleResult?: Record<string, any>;
 };
 
-export type IFormInstancePartial = Partial<IFormInstance>;
+export type FormInstancePropsPartial = Partial<FormInstanceProps>;
 
-export type ISearchField = {
-  searchName: string;
-  searchField: string;
-  [k: string]: any;
-};
-
-export type IRule = {
+export type RuleProps = {
   required?: boolean;
   pattern?: RegExp;
   validator?: (val: Record<string, any>) => boolean;

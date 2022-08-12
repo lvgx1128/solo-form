@@ -1,16 +1,16 @@
 import { useReducer, useRef } from 'react';
-import type { IRule, ISchema, IUpdateSchemaBase, IFormInstance } from '@/@types';
+import type { RuleProps, SchemaProps, UpdateSchemaBaseProps, FormInstanceProps } from '@/@types';
 import { schemaFormat, validateRule } from '../utils/index';
 import { get, set, unset } from 'lodash-es';
 
 interface IProps {
-  schema: ISchema;
+  schema: SchemaProps;
   data?: Record<string, any>;
 }
 
 const rulesWhiteList = ['rate', 'switch'];
 
-export function useForm({ schema, data }: IProps): IFormInstance {
+export function useForm({ schema, data }: IProps): FormInstanceProps {
   const useSet = (x: any) =>
     useReducer((a: Record<string, any>, b: Record<string, any>) => ({ ...a, ...b }), x);
 
@@ -23,7 +23,7 @@ export function useForm({ schema, data }: IProps): IFormInstance {
   // schema 数据处理
   const schemaRef = useRef(schema);
   // 更新schema数据
-  const setSchema = (newSchema: ISchema | Record<string, IUpdateSchemaBase>) => {
+  const setSchema = (newSchema: SchemaProps | Record<string, UpdateSchemaBaseProps>) => {
     schemaRef.current = schemaFormat(schemaRef.current, newSchema);
     setState({ schema: schemaRef.current });
   };
@@ -69,16 +69,16 @@ export function useForm({ schema, data }: IProps): IFormInstance {
   };
 
   // form表单校验规则
-  const ruleRef = useRef<Record<string, IRule[]>>();
+  const ruleRef = useRef<Record<string, RuleProps[]>>();
   // 更新schema数据
-  const setRules = (rules: Record<string, IRule[]>) => {
+  const setRules = (rules: Record<string, RuleProps[]>) => {
     rulesWhiteList.forEach((item) => {
       unset(rules, item);
     });
     ruleRef.current = rules;
   };
 
-  const getFieldRules = (key: string): IRule[] => {
+  const getFieldRules = (key: string): RuleProps[] => {
     return (ruleRef.current && ruleRef.current[key]) || [];
   };
 

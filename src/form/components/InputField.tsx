@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Input } from 'antd';
-import type { IFieldItem } from '@/@types';
+import type { FieldItemProps } from '@/@types';
 import classnames from 'classnames';
 import { useAction, useStore } from '../hooks/context';
 import { validateRule } from '../utils';
@@ -11,7 +11,7 @@ import 'antd/es/input/style'
 
 const { TextArea } = Input;
 
-export default function InputFiled({ ...fieldItem }: IFieldItem): JSX.Element {
+export default function InputFiled({ ...fieldItem }: FieldItemProps): JSX.Element {
   const { formData, ruleResult } = useStore();
   // 获取相关 useForm中方法 执行相关操作
   const { watch, setData, getFieldRules } = useAction();

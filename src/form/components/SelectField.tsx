@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Select } from 'antd';
-import type { IFieldItem } from '@/@types/index';
+import type { FieldItemProps } from '@/@types/index';
 import classnames from 'classnames';
 import { useAction, useStore } from '../hooks/context';
 import { validateRule } from '../utils';
@@ -15,7 +15,7 @@ type LabeledValue = {
   label: React.ReactNode;
 };
 
-export default function SelectField({ ...fieldItem }: IFieldItem): JSX.Element {
+export default function SelectField({ ...fieldItem }: FieldItemProps): JSX.Element {
   const { formData, ruleResult } = useStore();
   const { props, label, fieldKey, options = [], bordered, isRequired, labelTips } = fieldItem;
   const { watch, setData, getFieldRules } = useAction();

@@ -26,13 +26,7 @@
   "main": "dist/index.js",
   "module": "es/index.js",
   "scripts": {
-    "build": "father-build",
-    "next": "npm publish --tag next",
-    "prepare": "npm run build",
-    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
-    "postpublish": "git push --tags",
-    "test": "umi-test",
-    "test:coverage": "umi-test --coverage"
+    "release": "np --yolo=true"
   },
   "dependencies": {
     "dayjs": "^1.11.3",
@@ -41,8 +35,7 @@
   },
   "peerDependencies": {
     "antd": "4.x",
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "react": ">=16.8.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

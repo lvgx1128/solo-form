@@ -19,14 +19,14 @@ filePath: null
 
 | 参数 | 描述 | 类型 | 是否必填 | 默认值 |
 | --- | --- | --- | --- | --- |
-| schema | 描述表单的 schema，详见 [schema 规范](/schema) | `ISchema` | `是` | `--` |
+| schema | 描述表单的 schema，详见 [schema 规范](/schema) | `SchemaProps` | `是` | `--` |
 | data | 表单初始化的值 | `Record<string, any>` | `否` | `--` |
 
 ### useForm 实例返回值
 
 | 参数 | 描述 | 类型 |
 | --- | --- | --- |
-| setSchema | 更新 schema 字段 更新 form 组件结构 | ` (param: ISchema ｜ Record<string, IUpdateSchemaBase>) => void` |
+| setSchema | 更新 schema 字段 更新 form 组件结构 | ` (param: SchemaProps ｜ Record<string, UpdateSchemaBaseProps>) => void` |
 | setData | 外部手动修改 formData，用于已填写的表单的数据回填 | `(param: Record<string, any>) => void` |
 | setDataByKey | 外部通过 key 修改指定单个 field 的数据 | `(key: string, param: any) => void` |
 | getData | 获取表单内部维护的数据 formData 所有字段 | `() => Record<string, any>` |
@@ -41,7 +41,7 @@ filePath: null
  * title: 通过from实例setSchema方法修改输入框label
  */
 import React from 'react';
-import { SoloForm, useForm } from 'solo-form';
+import SoloForm, { useForm } from 'solo-form';
 
 const schema = {
   type: 'object',
@@ -112,7 +112,7 @@ export default function BasicDemo(): JSX.Element {
  * title: 通过from实例setData方法修改data 姓名为Turbo, 年纪为30
  */
 import React from 'react';
-import { SoloForm, useForm } from 'solo-form';
+import SoloForm, { useForm } from 'solo-form';
 
 const schema = {
   type: 'object',
@@ -164,7 +164,7 @@ export default function BasicDemo(): JSX.Element {
  * title: 通过from实例setDataByKey方法修改姓名为Turbo
  */
 import React from 'react';
-import { SoloForm, useForm } from 'solo-form';
+import SoloForm, { useForm } from 'solo-form';
 
 const schema = {
   type: 'object',
@@ -216,7 +216,7 @@ export default function BasicDemo(): JSX.Element {
  * title: 通过from实例getData方法 获取表单数据
  */
 import React from 'react';
-import { SoloForm, useForm } from 'solo-form';
+import SoloForm, { useForm } from 'solo-form';
 
 const schema = {
   type: 'object',
@@ -275,7 +275,7 @@ export default function BasicDemo(): JSX.Element {
  * title: 通过from实例getDataByKey方法 获取姓名数据
  */
 import React from 'react';
-import { SoloForm, useForm } from 'solo-form';
+import SoloForm, { useForm } from 'solo-form';
 
 const schema = {
   type: 'object',
@@ -334,7 +334,7 @@ export default function BasicDemo(): JSX.Element {
  * title: 通过from实例clearData 方法清除表单数据
  */
 import React from 'react';
-import { SoloForm, useForm } from 'solo-form';
+import SoloForm, { useForm } from 'solo-form';
 
 const schema = {
   type: 'object',

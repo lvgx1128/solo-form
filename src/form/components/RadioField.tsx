@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Radio } from 'antd';
-import type { IFieldItem } from '@/@types/index';
+import type { FieldItemProps } from '@/@types/index';
 import classnames from 'classnames';
 import { useAction, useStore } from '../hooks/context';
 import { validateRule } from '../utils';
@@ -10,7 +10,7 @@ import 'antd/es/radio/style'
 
 const { Group } = Radio;
 
-export default function RadioField({ ...fieldItem }: IFieldItem): JSX.Element {
+export default function RadioField({ ...fieldItem }: FieldItemProps): JSX.Element {
   const { formData, ruleResult } = useStore();
   const { props, options = [], fieldKey, label, bordered, isRequired, labelTips } = fieldItem;
   const { setData, watch, getFieldRules } = useAction();

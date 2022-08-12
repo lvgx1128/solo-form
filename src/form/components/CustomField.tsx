@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { set, isArray } from 'lodash-es';
-import type { IFieldItem } from '@/@types/index';
+import type { FieldItemProps } from '@/@types/index';
 import classnames from 'classnames';
 import { useAction, useStore } from '../hooks/context';
 import { validateRule } from '../utils';
 import { useUpdateLayoutEffect } from '../hooks/useUpdateLayoutEffect';
 import Tips from './Tips';
 
-export default function CustomField({ ...fieldItem }: IFieldItem): JSX.Element {
+export default function CustomField({ ...fieldItem }: FieldItemProps): JSX.Element {
   const { formData, ruleResult } = useStore();
   const {
     props,
@@ -93,7 +93,6 @@ export default function CustomField({ ...fieldItem }: IFieldItem): JSX.Element {
           value={val}
           className="ml-10 full-width"
           onChange={changeHandle}
-          bordered={!bordered}
           {...props}
         />
       </div>

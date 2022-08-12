@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import type { IFieldItem } from '@/@types/index';
+import type { FieldItemProps } from '@/@types/index';
 
 import * as Component from './components';
 
@@ -17,7 +17,7 @@ const ComponentMap = {
 };
 
 interface IProps {
-  fieldItem: IFieldItem;
+  fieldItem: FieldItemProps;
 }
 
 export default memo(

@@ -22,7 +22,7 @@ filePath: null
  * title: 修改输入框 通过from示例setData方法修改订单编号联动的值
  */
 import React from 'react';
-import { SoloForm, useForm } from 'solo-form';
+import SoloForm, { useForm } from 'solo-form';
 
 const schema = {
   type: 'object',
@@ -69,7 +69,7 @@ export default function WatchFormDataDemo(): JSX.Element {
  * title: 修改禁用状态 通过from示例setSchema方法修改输入的状态
  */
 import React from 'react';
-import { SoloForm, useForm } from 'solo-form';
+import SoloForm, { useForm } from 'solo-form';
 
 const schema = {
   type: 'object',

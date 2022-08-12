@@ -40,12 +40,12 @@ yarn add solo-form
 
 ```tsx
 import React from 'react';
-import { SoloForm, useForm } from 'solo-form';
+import SoloForm, { useForm } from 'solo-form';
 
 const schema = {
   type: 'object',
-  title: '采购订单查询',
-  description: '采购订单查询',
+  title: '简单的 demo',
+  description: '简单的 demo',
   formProps: {
     display: 'block',
   },
@@ -96,5 +96,5 @@ export default function BasicDemo(): JSX.Element {
 
 | 参数 | 描述 | 类型 | 是否必填 | 默认值 |
 | --- | --- | --- | --- | --- |
-| form | 使用 useForm 创建的表单实例，与 SoloForm 一对一绑定 详见 [useForm](/use-form) | `IFormInstance` | `是` | `--` |
+| form | 使用 useForm 创建的表单实例，与 SoloForm 一对一绑定 详见 [useForm](/use-form) | `FormInstanceProps` | `是` | `--` |
 | watch | 时间选择器字段描述 区分样式 详见 [表单联动](/watch) | `object` | `否` | `--` |

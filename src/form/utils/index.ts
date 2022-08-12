@@ -1,17 +1,17 @@
-import { IRule, ISchema, ISchemaBase, IUpdateSchemaBase } from '../../@types';
+import { RuleProps, SchemaProps, SchemaBaseProps, UpdateSchemaBaseProps } from '../../@types';
 import { cloneDeep, get, isArray } from 'lodash-es';
 
 // 格式化 scheme 数据 TODO
 export function schemaFormat(
-  schema: ISchema,
-  newValue: ISchema | Record<string, IUpdateSchemaBase>,
-): ISchema {
+  schema: SchemaProps,
+  newValue: SchemaProps | Record<string, UpdateSchemaBaseProps>,
+): SchemaProps {
   let result: any;
   if (newValue.type === 'object') {
     result = cloneDeep(newValue);
     return result;
   }
-  let properties: Record<string, ISchemaBase> = {};
+  let properties: Record<string, SchemaBaseProps> = {};
   const newSchema = cloneDeep(schema) || {};
   properties = newSchema?.properties ?? {};
   const keys = Object.keys(newValue);
@@ -30,14 +30,14 @@ export function schemaFormat(
 }
 
 export function validateRule(
-  fieldRules: IRule[],
+  fieldRules: RuleProps[],
   fieldData: any,
 ): {
   isError: boolean;
   message: string;
 } {
   const result = { isError: false, message: '' };
-  fieldRules?.forEach((item: IRule) => {
+  fieldRules?.forEach((item: RuleProps) => {
     if (item.required && !result.isError) {
       result.isError = isArray(fieldData)
         ? fieldData.reduce((prev: boolean, _item: any) => {

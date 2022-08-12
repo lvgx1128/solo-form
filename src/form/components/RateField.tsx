@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Rate } from 'antd';
-import type { IFieldItem } from '@/@types/index';
+import type { FieldItemProps } from '@/@types/index';
 import classnames from 'classnames';
 import { useAction, useStore } from '../hooks/context';
 import { useUpdateLayoutEffect } from '../hooks/useUpdateLayoutEffect';
 import Tips from './Tips';
 import 'antd/es/rate/style'
 
-export default function RateField({ ...fieldItem }: IFieldItem): JSX.Element {
+export default function RateField({ ...fieldItem }: FieldItemProps): JSX.Element {
   const { formData } = useStore();
   const { props, fieldKey, label, bordered, labelTips } = fieldItem;
   const { setData, watch } = useAction();

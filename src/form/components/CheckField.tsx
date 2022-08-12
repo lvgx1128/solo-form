@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Checkbox } from 'antd';
-import type { IFieldItem } from '@/@types/index';
+import type { FieldItemProps } from '@/@types/index';
 import classnames from 'classnames';
 import { useAction, useStore } from '../hooks/context';
 import { validateRule } from '../utils';
@@ -11,7 +11,7 @@ import 'antd/es/checkbox/style'
 
 const { Group } = Checkbox;
 
-export default function CheckField({ ...fieldItem }: IFieldItem): JSX.Element {
+export default function CheckField({ ...fieldItem }: FieldItemProps): JSX.Element {
   const { formData, ruleResult } = useStore();
   const { props, options = [], fieldKey, label, bordered, isRequired, labelTips } = fieldItem;
   const { setData, watch, getFieldRules } = useAction();

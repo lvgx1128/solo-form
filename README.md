@@ -19,12 +19,12 @@ yarn add solo-form
 
 ```tsx
 import React from 'react';
-import { SoloForm, useForm } from 'solo-form';
+import SoloForm, { useForm } from 'solo-form';
 
 const schema = {
   type: 'object',
-  title: '采购订单查询',
-  description: '采购订单查询',
+  title: '简单的 demo',
+  description: '简单的 demo',
   formProps: {
     display: 'block',
   },
@@ -62,7 +62,7 @@ export default function BasicDemo(): JSX.Element {
 
 | 参数 | 描述 | 类型 | 是否必填 | 默认值 |
 | --- | --- | --- | --- | --- |
-| form | 使用 useForm 创建的表单实例，与 SoloForm 一对一绑定 详见 [文档 useForm](http://docs.lvgx.cn/solo-form/#/v1.x/use-form) | `IFormInstance` | `是` | `--` |
+| form | 使用 useForm 创建的表单实例，与 SoloForm 一对一绑定 详见 [文档 useForm](http://docs.lvgx.cn/solo-form/#/v1.x/use-form) | `FormInstanceProps` | `是` | `--` |
 | watch | 时间选择器字段描述 区分样式 详见 [文档 表单联动](http://docs.lvgx.cn/solo-form/#/v1.x/watch) | `object` | `否` | `--` |
 
 ## [**useFrom**](http://docs.lvgx.cn/solo-form/#/v1.x/use-form)
@@ -73,14 +73,14 @@ export default function BasicDemo(): JSX.Element {
 
 | 参数 | 描述 | 类型 | 是否必填 | 默认值 |
 | --- | --- | --- | --- | --- |
-| schema | 描述表单的 schema，详见 [schema 规范](http://docs.lvgx.cn/solo-form/#/v1.x/schema) | `ISchema` | `是` | `--` |
+| schema | 描述表单的 schema，详见 [schema 规范](http://docs.lvgx.cn/solo-form/#/v1.x/schema) | `SchemaProps` | `是` | `--` |
 | data | 表单初始化的值 | `Record<string, any>` | `否` | `--` |
 
 ### useForm 实例返回值
 
 | 参数 | 描述 | 类型 |
 | --- | --- | --- |
-| setSchema | 更新 schema 字段 更新 form 组件结构 | ` (param: ISchema ｜ Record<string, IUpdateSchemaBase>) => void` |
+| setSchema | 更新 schema 字段 更新 form 组件结构 | ` (param: SchemaProps ｜ Record<string, UpdateSchemaBaseProps>) => void` |
 | setData | 外部手动修改 formData，用于已填写的表单的数据回填 | `(param: Record<string, any>) => void` |
 | setDataByKey | 外部通过 key 修改指定单个 field 的数据 | `(key: string, param: any) => void` |
 | getData | 获取表单内部维护的数据 formData 所有字段 | `() => Record<string, any>` |

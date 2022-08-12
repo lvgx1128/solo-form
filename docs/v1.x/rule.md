@@ -13,9 +13,9 @@ nav:
 filePath: null
 ---
 
-同过 scheme 中`rules: IRule[]`字段实现表单定制化的校验，目前支持`必填` `正则` `自定义方法 `等校验方式
+同过 scheme 中`rules: RuleProps[]`字段实现表单定制化的校验，目前支持`必填` `正则` `自定义方法 `等校验方式
 
-### `IRule字段解析`
+### `RuleProps字段解析`
 
 | 字段 | 描述 | 是否必填 | 类型 | 默认值 |
 | --- | --- | --- | --- | --- |
@@ -28,7 +28,7 @@ filePath: null
 
 ```tsx
 import React from 'react';
-import { SoloForm, useForm } from 'solo-form';
+import SoloForm, { useForm } from 'solo-form';
 
 const schema = {
   type: 'object',
@@ -108,7 +108,7 @@ export default () => {
  * title: 输入框信息必须是hello
  */
 import React from 'react';
-import { SoloForm, useForm } from 'solo-form';
+import SoloForm, { useForm } from 'solo-form';
 
 const schema = {
   type: 'object',
@@ -183,7 +183,7 @@ export default () => {
  * title: 只能选择下拉框2和下拉框3并且输入框信息必须包含abc
  */
 import React from 'react';
-import { SoloForm, useForm } from 'solo-form';
+import SoloForm, { useForm } from 'solo-form';
 
 const schema = {
   type: 'object',

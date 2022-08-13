@@ -47,9 +47,6 @@ const schema = {
   type: 'object',
   title: 'setSchema 示例',
   description: 'setSchema 示例 ',
-  formProps: {
-    display: 'block',
-  },
   itemProps: {
     bordered: false,
     width: '500px',
@@ -222,9 +219,6 @@ const schema = {
   type: 'object',
   title: '采购订单查询',
   description: '采购订单查询',
-  formProps: {
-    display: 'block',
-  },
   itemProps: {
     bordered: false,
     width: '500px',
@@ -281,9 +275,6 @@ const schema = {
   type: 'object',
   title: '采购订单查询',
   description: '采购订单查询',
-  formProps: {
-    display: 'block',
-  },
   itemProps: {
     bordered: false,
     width: '500px',

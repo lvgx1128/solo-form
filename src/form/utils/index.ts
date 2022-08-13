@@ -20,7 +20,7 @@ export function schemaFormat(
     const newPropItem = get(newValue, item);
     const props = { ...propItem?.props, ...newPropItem?.props };
     properties[item] = { ...propItem, ...newPropItem, props };
-    if (item === 'itemProps' || item === 'formProps') {
+    if (item === 'itemProps') {
       const itemProps = get(newSchema, item);
       newSchema[item] = { ...itemProps, ...newPropItem };
     }

@@ -25,9 +25,6 @@ const schema = {
   type: 'object',
   title: '简单的 demo',
   description: '简单的 demo',
-  formProps: {
-    display: 'block',
-  },
   itemProps: {
     bordered: false,
     width: '500px',

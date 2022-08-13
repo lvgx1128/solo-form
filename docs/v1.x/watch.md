@@ -28,9 +28,6 @@ const schema = {
   type: 'object',
   title: '输入框的联动',
   description: '输入框的联动',
-  formProps: {
-    display: 'block',
-  },
   properties: {
     input: {
       label: '输入框',
@@ -75,9 +72,6 @@ const schema = {
   type: 'object',
   title: '输入框的联动',
   description: '输入框的联动',
-  formProps: {
-    display: 'block',
-  },
   properties: {
     select: {
       label: '输入框状态',

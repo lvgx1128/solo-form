@@ -36,6 +36,12 @@ npm install solo-form
 yarn add solo-form
 ```
 
+或
+
+```sh
+pnpm install solo-form
+```
+
 ### 简单的 demo
 
 ```tsx

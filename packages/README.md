@@ -13,6 +13,7 @@ solo-form 依赖 antd 组件，实用前请先安装 4.0 版本以上的[antd](h
 ```sh
 npm install solo-form
 yarn add solo-form
+pnpm install solo-form
 ```
 
 ### 简单的 demo

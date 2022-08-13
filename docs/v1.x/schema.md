@@ -26,7 +26,6 @@ schema 是表单的基本结构展示和校验的必要信息
 | type | schema 类型 目前只支持 object 类型 | `是` | 'object' |
 | title | schema 标题 用于标记 没有实际作用 | `否` | `string` |
 | description | schema 描述 用于标记 没有实际作用 | `否` | `string` |
-| formProps | form 表单属性 | `否` | `Record<string, any>` |
 | itemProps | 表单每个 item 的公共属性 会被的 item 上字段值覆盖 | `否` | `SchemaBaseProps` |
 | properties | 表单每个 item 的公共属性 会被的 item 上字段值覆盖 | `否` | `Record<string, SchemaBaseProps>` |
 
@@ -38,6 +37,7 @@ schema 是表单的基本结构展示和校验的必要信息
 | labelWidth | 表单中每个 item 的 label 的宽度 | `否` | `string｜number` | `100` |
 | labelTips | 表单中每个 item 的 label 的注释 | `否` | `string` | `--` |
 | labelAlign | 表单中每个 item 的 label 等对其方式 | `否` | `left｜right｜center` | `right` |
+| display | 表单中每个 item 是块级或内联 | `否` | `inline｜block` | `block` |
 | format | 表单中每个 item 的组件类型 | `是` | `'input｜textarea｜datePicker｜dateRange｜checkbox｜select｜radio｜switch｜rate｜custom'` | `--` |
 | className | 表单中每个 item 的 自定义 class 复写样式使用 | `否` | `string` | `--` |
 | options | item 组件需要的枚举值展示字段，select radio checkbook 等组件需要此字段 | `否` | `{ label: string｜number; value: string｜number }[]` | `--` |
@@ -46,7 +46,7 @@ schema 是表单的基本结构展示和校验的必要信息
 | width | item 组件自定义宽度 | `否` | `string｜number` | `100px ｜ 100%` |
 | props | item 组件的内置属性 支持 antd 组件的所有属性，如果和上述属性冲突会覆盖 | `否` | `Record<string, any>` | `--` |
 | rules | item 组件的表单校验规则 | `否` | `RuleProps[]` | `--` |
-| widget | item 自定义组件 | `否` | `React.FC` | `--` |
+| widget | item 自定义组件 当 format === 'custom'时 有效 | `否` | `React.FC` | `--` |
 
 ### `RuleProps字段解析`
 
@@ -64,9 +64,6 @@ const schema = {
   type: 'object',
   title: '表单实力schema',
   description: '表单实力schema',
-  formProps: {
-    display: 'block',
-  },
   itemProps: {
     bordered: false,
     width: '300px',

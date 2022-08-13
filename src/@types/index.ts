@@ -9,9 +9,7 @@ type SchemaFormatProps =  | 'input'
 | 'rate'
 | 'custom';
 
-export type SchemaBaseProps = {
-  label: string;
-  format: SchemaFormatProps;
+interface ItemProps {
   className?: string;
   rules?: RuleProps[];
   options?: { label: string | number; value: string | number }[];
@@ -21,9 +19,14 @@ export type SchemaBaseProps = {
   labelAlign?: 'left' | 'right' | 'center';
   widget?: any;
   props?: Record<string, any>;
-  display?: string;
-  bordered?: boolean;
+  display?: 'block' | 'inline';
+  bordered?: boolean; 
   labelTips?: string;
+}
+
+export interface SchemaBaseProps extends ItemProps {
+  label: string;
+  format: SchemaFormatProps;
 };
 
 export type UpdateSchemaBaseProps = Partial<SchemaBaseProps>;
@@ -32,8 +35,7 @@ export type SchemaProps = {
   type: 'object';
   title?: string;
   description?: string;
-  formProps?: { display: 'block' | 'inline' };
-  itemProps?: SchemaBaseProps;
+  itemProps?: ItemProps;
   properties: Record<string, SchemaBaseProps>;
 };
 

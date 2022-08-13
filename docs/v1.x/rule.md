@@ -34,9 +34,6 @@ const schema = {
   type: 'object',
   title: '表单必填校验',
   description: '表单必填校验',
-  formProps: {
-    display: 'block',
-  },
   itemProps: {
     bordered: false,
     width: '500px',
@@ -114,9 +111,6 @@ const schema = {
   type: 'object',
   title: '表单正则校验',
   description: '表单正则校验',
-  formProps: {
-    display: 'block',
-  },
   itemProps: {
     bordered: false,
     width: '500px',
@@ -189,9 +183,6 @@ const schema = {
   type: 'object',
   title: '表单自定方法校验',
   description: '表单自定方法校验',
-  formProps: {
-    display: 'block',
-  },
   itemProps: {
     bordered: false,
     width: '500px',

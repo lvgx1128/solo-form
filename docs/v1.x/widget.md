@@ -68,9 +68,6 @@ const schema = {
   type: 'object',
   title: ' 内置组件复杂 demo',
   description: ' 内置组件复杂 demo',
-  formProps: {
-    display: 'block',
-  },
   itemProps: {
     width: 500,
   },
@@ -115,6 +112,7 @@ const schema = {
       ],
       width: '300px',
       labelWidth: '100px',
+      display: 'block',
       rules: [{ required: true, message: '请选择下拉框' }],
       props: {
         placeholder: '请输选下拉框',

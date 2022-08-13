@@ -14,9 +14,9 @@ export default function FieldRender(): JSX.Element {
   const { schema } = useStore() as StoreProps;
   const { setRules } = useAction() as ActionProps;
   const flatten = schema?.properties ?? {};
-  const formProps = schema?.formProps ?? { display: 'inline' };
   // 表单item上绑定的属性
   const itemProps = schema?.itemProps ?? {};
+  const display = itemProps?.display || 'block'
   // 解析schema
   const formRules: Record<string, RuleProps[]> = {};
   const fieldList = Object.keys(flatten).reduce((prev: IFieldItemProps[], item: string) => {
@@ -40,7 +40,7 @@ export default function FieldRender(): JSX.Element {
               'solo-form-item-box',
               { 'solo-form-item-textarea': item.format === 'textarea' },
               item.className,
-              `solo-form-${formProps?.display}`,
+              `solo-form-${item?.display || display}`,
             )}
           >
             {item && <FieldItem fieldItem={item} key={item.fieldKey} />}

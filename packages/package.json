@@ -1,0 +1,44 @@
+{
+  "name": "solo-form",
+  "version": "2.0.0",
+  "files": [
+    "dist",
+    "es",
+    "README.md",
+    "package.json"
+  ],
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "homepage": "https://github.com/lvgx1128/solo-form",
+  "bugs": {
+    "url": "https://github.com/lvgx1128/solo-form/issues"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lvgx1128/solo-form.git"
+  },
+  "main": "dist/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "release": "np --yolo=true"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.3",
+    "classnames": "^2.3.1",
+    "lodash-es": "^4.17.21"
+  },
+  "peerDependencies": {
+    "antd": ">=5.x",                                                                                             
+    "react": ">=16.8.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  }
+}

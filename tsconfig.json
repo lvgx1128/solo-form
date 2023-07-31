@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "baseUrl": "./",
+    "paths": {
+      // 路径映射，与 baseUrl 关联
+      "@/*": ["./src/*"],
+      "@@/*": [".dumi/tmp/*"],
+      "solo-form": ["src"],
+      // "solo-form/*": ["src/*", "*"]
+    },
+  },
+  "include": [".dumi/**/*", ".dumirc.ts", "src/**/*"]
+}

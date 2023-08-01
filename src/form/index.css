@@ -1,3 +1,4 @@
+/* stylelint-disable rule-empty-line-before */
 .solo-form-container .solo-form-item-box {
   margin-bottom: 16px;
   padding-right: 5px;
@@ -13,22 +14,25 @@
 .solo-form-container .solo-form-item-box.solo-form-item-textarea {
   height: auto;
 }
-.solo-form-container .solo-form-item-box.solo-form-item-textarea .solo-form-item {
+.solo-form-container
+  .solo-form-item-box.solo-form-item-textarea
+  .solo-form-item {
   align-items: flex-start;
   height: auto;
 }
 .solo-form-container .solo-form-item {
   display: flex;
   align-items: center;
-  min-height: 32px;
   color: #1f2126;
+  height: 32px;
 }
 .solo-form-container .solo-form-item.solo-form-item-border {
   padding: 0 0 0 10px;
   border: 1px solid #d5dae5;
   border-radius: 2px;
 }
-.solo-form-container .solo-form-item.solo-form-item-border.solo-form-item-disabled {
+.solo-form-container
+  .solo-form-item.solo-form-item-border.solo-form-item-disabled {
   background: #f5f7fc;
 }
 .solo-form-container .solo-form-item.solo-form-item-border:hover {
@@ -64,7 +68,10 @@
   border: 1px solid #f2242e;
 }
 .solo-form-container .solo-form-item.solo-form-item-error-border .error-message,
-.solo-form-container .solo-form-item .solo-form-item-error-border .error-message {
+.solo-form-container
+  .solo-form-item
+  .solo-form-item-error-border
+  .error-message {
   position: absolute;
   bottom: -19px;
   left: -2px;
@@ -86,6 +93,15 @@
   font-size: 14px;
   white-space: nowrap;
   text-align: right;
+}
+.solo-form-container .solo-form-item-small {
+  height: 28px;
+}
+.solo-form-container .solo-form-item-small * {
+  font-size: 12px !important;
+}
+.solo-form-container .solo-form-item-small .ant-input-sm {
+  padding: 2.5px 7px;
 }
 .solo-form-container .label-title::after {
   margin: 0 8px 0 5px;

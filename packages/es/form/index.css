@@ -1,0 +1,133 @@
+/* stylelint-disable rule-empty-line-before */
+.solo-form-container .solo-form-item-box {
+  margin-bottom: 16px;
+  padding-right: 5px;
+}
+.solo-form-container .solo-form-item-box.solo-form-inline {
+  display: inline-block;
+  width: 300px;
+}
+.solo-form-container .solo-form-item-box.solo-form-block {
+  display: block;
+  width: 100%;
+}
+.solo-form-container .solo-form-item-box.solo-form-item-textarea {
+  height: auto;
+}
+.solo-form-container .solo-form-item-box.solo-form-item-textarea .solo-form-item {
+  align-items: flex-start;
+  height: auto;
+}
+.solo-form-container .solo-form-item {
+  display: flex;
+  align-items: center;
+  color: #1f2126;
+  height: 32px;
+}
+.solo-form-container .solo-form-item.solo-form-item-border {
+  padding: 0 0 0 10px;
+  border: 1px solid #d5dae5;
+  border-radius: 2px;
+}
+.solo-form-container .solo-form-item.solo-form-item-border.solo-form-item-disabled {
+  background: #f5f7fc;
+}
+.solo-form-container .solo-form-item.solo-form-item-border:hover {
+  border: 1px solid #2b6bff;
+}
+.solo-form-container .solo-form-item.solo-form-item-border .label-title {
+  width: auto;
+}
+.solo-form-container .solo-form-item.solo-form-item-error,
+.solo-form-container .solo-form-item .solo-form-item-error {
+  position: relative;
+  height: 100%;
+  line-height: 2.2;
+}
+.solo-form-container .solo-form-item.solo-form-item-error .error-message,
+.solo-form-container .solo-form-item .solo-form-item-error .error-message {
+  position: absolute;
+  bottom: -18px;
+  left: -2px;
+  z-index: 999;
+  width: calc(100% + 4px);
+  height: 18px;
+  padding: 0 6px;
+  color: #f2242e;
+  font-size: 12px;
+  line-height: 18px;
+}
+.solo-form-container .solo-form-item.solo-form-item-error-border,
+.solo-form-container .solo-form-item .solo-form-item-error-border {
+  position: relative;
+  height: 100%;
+  line-height: 2.2;
+  border: 1px solid #f2242e;
+}
+.solo-form-container .solo-form-item.solo-form-item-error-border .error-message,
+.solo-form-container .solo-form-item .solo-form-item-error-border .error-message {
+  position: absolute;
+  bottom: -19px;
+  left: -2px;
+  z-index: 999;
+  width: calc(100% + 4px);
+  height: 18px;
+  padding: 0 6px;
+  color: #f2242e;
+  font-size: 12px;
+  line-height: 18px;
+  background-color: #ffe3e3;
+}
+.solo-form-container .solo-form-item.solo-form-item-error-border:hover,
+.solo-form-container .solo-form-item .solo-form-item-error-border:hover {
+  border: 1px solid #f2242e;
+}
+.solo-form-container .label-title {
+  width: 100px;
+  font-size: 14px;
+  white-space: nowrap;
+  text-align: right;
+}
+.solo-form-container .solo-form-item-small {
+  height: 28px;
+}
+.solo-form-container .solo-form-item-small * {
+  font-size: 12px !important;
+}
+.solo-form-container .solo-form-item-small .ant-input-sm {
+  padding: 2.5px 7px;
+}
+.solo-form-container .label-title::after {
+  margin: 0 8px 0 5px;
+  content: ':';
+}
+.solo-form-container .label-title.required::before {
+  margin: 0 3px 0 0;
+  color: #f2242e;
+  font-size: 14px;
+  content: '*';
+}
+.solo-form-container .is-focus {
+  border: 1px solid #2b6bff;
+}
+.solo-form-container .flex-full {
+  flex: 1;
+  width: 0;
+}
+.solo-form-container .ml-10 {
+  margin-left: 10px;
+}
+.solo-form-container .full-width {
+  width: 100%;
+}
+.solo-form-container .solo-border-error {
+  border-color: #f2242e;
+}
+.solo-form-container .solo-border-error .ant-select-selector {
+  border-color: #f2242e;
+}
+.solo-tips-icon {
+  margin-top: 2px;
+  margin-left: 4px;
+  vertical-align: text-top;
+}

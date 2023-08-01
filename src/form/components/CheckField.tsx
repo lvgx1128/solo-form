@@ -1,19 +1,29 @@
 import React, { useState } from 'react';
 import { Checkbox } from 'antd';
-import type { FieldItemProps } from '@/@types/index';
+import type { FieldItemProps } from '../../@types/index';
 import classnames from 'classnames';
 import { useAction, useStore } from '../hooks/context';
 import { validateRule } from '../utils';
 import { useUpdateLayoutEffect } from '../hooks/useUpdateLayoutEffect';
 import { isArray } from 'lodash-es';
 import Tips from './Tips';
-import 'antd/es/checkbox/style'
+import 'antd/es/checkbox/style';
 
 const { Group } = Checkbox;
 
-export default function CheckField({ ...fieldItem }: FieldItemProps): JSX.Element {
+export default function CheckField({
+  ...fieldItem
+}: FieldItemProps): JSX.Element {
   const { formData, ruleResult } = useStore();
-  const { props, options = [], fieldKey, label, bordered, isRequired, labelTips } = fieldItem;
+  const {
+    props,
+    options = [],
+    fieldKey,
+    label,
+    bordered,
+    isRequired,
+    labelTips,
+  } = fieldItem;
   const { setData, watch, getFieldRules } = useAction();
   // useForm中 formData 中field数据
   const fieldData = formData?.[fieldKey];
@@ -45,11 +55,15 @@ export default function CheckField({ ...fieldItem }: FieldItemProps): JSX.Elemen
     if (watch && watch['#']) watch['#'](value, fieldKey);
     // 在form表单中失去change触发 表单校验
     const result = validateRule(fieldRules || [], value);
-    if (validateResult.isError !== result.isError || validateResult.message !== result.message)
+    if (
+      validateResult.isError !== result.isError ||
+      validateResult.message !== result.message
+    )
       setValidateResult(result);
   }
   const formItem = classnames(
     'solo-form-item',
+    { 'solo-form-item-small': props?.size === 'small' },
     { 'solo-form-item-border': bordered },
     { 'solo-form-item-disabled': props?.disabled },
     { 'solo-form-item-error-border': validateResult?.isError && bordered },

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Switch } from 'antd';
-import type { FieldItemProps } from '@/@types/index';
+import type { FieldItemProps } from '../../@types/index';
 import classnames from 'classnames';
 import { useAction, useStore } from '../hooks/context';
 import { useUpdateLayoutEffect } from '../hooks/useUpdateLayoutEffect';
 import Tips from './Tips';
-import 'antd/es/switch/style'
+import 'antd/es/switch/style';
 
-export default function SwitchField({ ...fieldItem }: FieldItemProps): JSX.Element {
+export default function SwitchField({
+  ...fieldItem
+}: FieldItemProps): JSX.Element {
   const { formData } = useStore();
   const { props, fieldKey, label, bordered, labelTips } = fieldItem;
   const { setData, watch } = useAction();
@@ -26,17 +28,26 @@ export default function SwitchField({ ...fieldItem }: FieldItemProps): JSX.Eleme
   }
   const formItem = classnames(
     'solo-form-item',
+    { 'solo-form-item-small': props?.size === 'small' },
     { 'solo-form-item-border': bordered },
     { 'solo-form-item-disabled': props?.disabled },
   );
   return (
     <div className={formItem}>
-      <div className={classnames('label-title')} style={{ width: fieldItem.labelWidth }}>
+      <div
+        className={classnames('label-title')}
+        style={{ width: fieldItem.labelWidth }}
+      >
         <span>{label}</span>
         {labelTips ? <Tips text={labelTips} /> : null}
       </div>
       <div className={classnames('flex-full')}>
-        <Switch checked={val} className="ml-10" onChange={changeHandle} {...props} />
+        <Switch
+          checked={val}
+          className="ml-10"
+          onChange={changeHandle}
+          {...props}
+        />
       </div>
     </div>
   );

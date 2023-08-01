@@ -1,1 +1,1 @@
-export { SchemaProps, FormInstanceProps, RuleProps } from '@/@types/index';
+export { SchemaProps, FormInstanceProps, RuleProps } from '../@types/index';

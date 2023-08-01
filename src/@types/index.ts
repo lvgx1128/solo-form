@@ -1,13 +1,14 @@
-type SchemaFormatProps =  | 'input'
-| 'textarea'
-| 'datePicker'
-| 'dateRange'
-| 'checkbox'
-| 'select'
-| 'radio'
-| 'switch'
-| 'rate'
-| 'custom';
+type SchemaFormatProps =
+  | 'input'
+  | 'textarea'
+  | 'datePicker'
+  | 'dateRange'
+  | 'checkbox'
+  | 'select'
+  | 'radio'
+  | 'switch'
+  | 'rate'
+  | 'custom';
 
 interface ItemProps {
   className?: string;
@@ -20,19 +21,19 @@ interface ItemProps {
   widget?: any;
   props?: Record<string, any>;
   display?: 'block' | 'inline';
-  bordered?: boolean; 
+  bordered?: boolean;
   labelTips?: string;
 }
 
 export interface SchemaBaseProps extends ItemProps {
   label: string;
   format: SchemaFormatProps;
-};
+}
 
 export type UpdateSchemaBaseProps = Partial<SchemaBaseProps>;
 
 export type SchemaProps = {
-  type: 'object';
+  type: string;
   title?: string;
   description?: string;
   itemProps?: ItemProps;
@@ -61,7 +62,9 @@ export type FieldItemProps = {
 };
 
 export type ActionProps = {
-  setSchema?: (param: Record<string, UpdateSchemaBaseProps> | SchemaProps) => void;
+  setSchema?: (
+    param: Record<string, UpdateSchemaBaseProps> | SchemaProps,
+  ) => void;
   setData?: (param: Record<string, any>) => void;
   getData?: () => Record<string, any>;
   getDataByKey?: (param: string) => any;
@@ -79,7 +82,9 @@ export type StoreProps = {
 };
 
 export type FormInstanceProps = {
-  setSchema: (param: Record<string, UpdateSchemaBaseProps> | SchemaProps) => void;
+  setSchema: (
+    param: Record<string, UpdateSchemaBaseProps> | SchemaProps,
+  ) => void;
   removeSchemaByKey: (param: string) => void;
   setData: (param: Record<string, any>) => void;
   setDataByKey: (key: string, param: Record<string, any>) => void;
@@ -88,7 +93,9 @@ export type FormInstanceProps = {
   getFieldRules?: (param: string) => RuleProps[];
   clearData: () => void;
   setRules: (param: Record<string, RuleProps[]>) => void;
-  validateFields: (keys: string[]) => Promise<{ validate: boolean; data: Record<string, any> }>;
+  validateFields: (
+    keys: string[],
+  ) => Promise<{ validate: boolean; data: Record<string, any> }>;
   schema?: SchemaProps;
   formData?: Record<string, any>;
   ruleResult?: Record<string, any>;

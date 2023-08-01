@@ -1,20 +1,18 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "jsx": "react",
-    "esModuleInterop": true,
-    "types": ["jest"],
     "strict": true,
-    "skipLibCheck": true,
     "declaration": true,
-    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "jsx": "react",
     "baseUrl": "./",
     "paths": {
       // 路径映射，与 baseUrl 关联
-      "@/*": ["./src/*"],
-      "solo-from": [".src/index.ts"]
-    },
-  }
+      "@/*": ["src/*"],
+      "@@/*": [".dumi/tmp/*"],
+      "solo-form": ["src"]
+      // "solo-form/*": ["src/*", "*"]
+    }
+  },
+  "include": [".dumi/**/*", ".dumirc.ts", "src/**/*"]
 }

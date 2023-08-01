@@ -1,11 +1,14 @@
 const style = `
-html[data-prefers-color="dark"] .__dumi-default-layout-hero, html[data-prefers-color="light"] .__dumi-default-layout-hero {
-  padding: 60px 0;
-  background-color: #fff
+.dumi-default-hero-title {
+  font-size: 72px !important;
 }
-html[data-prefers-color="dark"] .__dumi-default-layout-hero, html[data-prefers-color="light"] .__dumi-default-layout-hero img {
-  height: 120px;
-  width: auto;
+.dumi-default-hero {
+  margin: 100px auto !important;
+  height: auto !important;
+  padding-top: 0px !important;
+}
+.dumi-default-features-item {
+  text-align: center;
 }
 `;
 

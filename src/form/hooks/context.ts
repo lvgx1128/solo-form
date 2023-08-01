@@ -1,5 +1,5 @@
 import { useContext, createContext } from 'react';
-import type { StoreProps, ActionProps } from '@/@types/index';
+import type { StoreProps, ActionProps } from '../@types/index';
 
 export const ActionContext = createContext<ActionProps>({});
 export const StoreContext = createContext({});

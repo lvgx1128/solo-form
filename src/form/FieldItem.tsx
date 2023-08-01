@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import type { FieldItemProps } from '@/@types/index';
+import type { FieldItemProps } from '../@types/index';
 
 import * as Component from './components';
 

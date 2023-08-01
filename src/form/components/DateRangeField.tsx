@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import type { FieldItemProps } from '@/@types/index';
+import type { FieldItemProps } from '../../@types/index';
 import dayjs from 'dayjs';
 import zhCN from 'antd/es/date-picker/locale/zh_CN';
 import DatePicker from './DatePicker';
@@ -12,7 +12,9 @@ import Tips from './Tips';
 
 const { RangePicker } = DatePicker;
 
-export default function DateRangeField({ ...fieldItem }: FieldItemProps): JSX.Element {
+export default function DateRangeField({
+  ...fieldItem
+}: FieldItemProps): JSX.Element {
   const { formData, ruleResult } = useStore();
   // 获取相关 useForm中方法 执行相关操作
   const { watch, setData, getFieldRules } = useAction();
@@ -26,7 +28,8 @@ export default function DateRangeField({ ...fieldItem }: FieldItemProps): JSX.El
     bind = ['start', 'end'],
     labelTips,
   } = fieldItem;
-  const isHasHour = props?.format?.indexOf('H') >= 0 || props?.format?.indexOf('h') >= 0;
+  const isHasHour =
+    props?.format?.indexOf('H') >= 0 || props?.format?.indexOf('h') >= 0;
   // useForm中 formData 中field数据
   const fieldData = formData?.[fieldKey];
   // input 的value值
@@ -98,11 +101,15 @@ export default function DateRangeField({ ...fieldItem }: FieldItemProps): JSX.El
     if (watch && watch['#']) watch['#'](data, fieldKey);
     // 在form表单中失去change触发 表单校验
     const result = validateRule(fieldRules || [], dateFormats);
-    if (validateResult.isError !== result.isError || validateResult.message !== result.message)
+    if (
+      validateResult.isError !== result.isError ||
+      validateResult.message !== result.message
+    )
       setValidateResult(result);
   }
   const formItemClass = classnames(
     'solo-form-item',
+    { 'solo-form-item-small': props?.size === 'small' },
     { 'solo-form-item-border': bordered },
     { 'solo-form-item-disabled': props?.disabled },
     { 'solo-form-item-error-border': validateResult?.isError && bordered },
@@ -128,7 +135,9 @@ export default function DateRangeField({ ...fieldItem }: FieldItemProps): JSX.El
           <div className="error-message"> {validateResult?.message} </div>
         ) : null}
         <RangePicker
-          className={classnames('full-width', { 'solo-border-error': validateResult?.isError })}
+          className={classnames('full-width', {
+            'solo-border-error': validateResult?.isError,
+          })}
           locale={zhCN}
           onChange={changeHandle}
           value={val}

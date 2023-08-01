@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { set, isArray } from 'lodash-es';
-import type { FieldItemProps } from '@/@types/index';
+import type { FieldItemProps } from '../../@types/index';
 import classnames from 'classnames';
 import { useAction, useStore } from '../hooks/context';
 import { validateRule } from '../utils';
 import { useUpdateLayoutEffect } from '../hooks/useUpdateLayoutEffect';
 import Tips from './Tips';
 
-export default function CustomField({ ...fieldItem }: FieldItemProps): JSX.Element {
+export default function CustomField({
+  ...fieldItem
+}: FieldItemProps): JSX.Element {
   const { formData, ruleResult } = useStore();
   const {
     props,
@@ -58,12 +60,16 @@ export default function CustomField({ ...fieldItem }: FieldItemProps): JSX.Eleme
     if (watch && watch['#']) watch['#'](value, fieldKey);
     // 在form表单中失去change触发 表单校验
     const result = validateRule(fieldRules || [], value);
-    if (validateResult.isError !== result.isError || validateResult.message !== result.message)
+    if (
+      validateResult.isError !== result.isError ||
+      validateResult.message !== result.message
+    )
       setValidateResult(result);
   }
 
   const formItem = classnames(
     'solo-form-item',
+    { 'solo-form-item-small': props?.size === 'small' },
     { 'solo-form-item-border': bordered },
     { 'solo-form-item-disabled': props?.disabled },
     { 'solo-form-item-error-border': validateResult?.isError && bordered },

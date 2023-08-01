@@ -1,5 +1,5 @@
-import SoloForm from './form'
+import SoloForm from './form';
 
 export { useForm } from './form/hooks/useForm';
-export default  SoloForm;
-export type { SchemaProps, FormInstanceProps, RuleProps } from './props'
+export default SoloForm;
+export type { SchemaProps, FormInstanceProps, RuleProps } from './@types';

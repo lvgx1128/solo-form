@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Rate } from 'antd';
-import type { FieldItemProps } from '@/@types/index';
+import type { FieldItemProps } from '../../@types/index';
 import classnames from 'classnames';
 import { useAction, useStore } from '../hooks/context';
 import { useUpdateLayoutEffect } from '../hooks/useUpdateLayoutEffect';
 import Tips from './Tips';
-import 'antd/es/rate/style'
+import 'antd/es/rate/style';
 
-export default function RateField({ ...fieldItem }: FieldItemProps): JSX.Element {
+export default function RateField({
+  ...fieldItem
+}: FieldItemProps): JSX.Element {
   const { formData } = useStore();
   const { props, fieldKey, label, bordered, labelTips } = fieldItem;
   const { setData, watch } = useAction();
@@ -29,6 +31,7 @@ export default function RateField({ ...fieldItem }: FieldItemProps): JSX.Element
   }
   const formItem = classnames(
     'solo-form-item',
+    { 'solo-form-item-small': props?.size === 'small' },
     { 'solo-form-item-border': bordered },
     { 'solo-form-item-disabled': props?.disabled },
   );
@@ -39,7 +42,12 @@ export default function RateField({ ...fieldItem }: FieldItemProps): JSX.Element
         {labelTips ? <Tips text={labelTips} /> : null}
       </div>
       <div className="flex-full">
-        <Rate value={val} className="ml-10 full-width" onChange={changeHandle} {...props} />
+        <Rate
+          value={val}
+          className="ml-10 full-width"
+          onChange={changeHandle}
+          {...props}
+        />
       </div>
     </div>
   );

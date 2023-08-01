@@ -14,6 +14,9 @@ dependencies:
   dayjs:
     specifier: ^1.11.8
     version: 1.11.8
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
   lodash-es:
     specifier: ^4.17.21
     version: 4.17.21
@@ -37,6 +40,9 @@ devDependencies:
   '@commitlint/config-conventional':
     specifier: ^17.1.0
     version: 17.1.0
+  '@types/lodash':
+    specifier: ^4.14.196
+    version: 4.14.196
   '@types/lodash-es':
     specifier: ^4.17.7
     version: 4.17.7
@@ -9401,7 +9407,6 @@ packages:
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /log-symbols@2.2.0:
     resolution: {integrity: sha512-VeIAFslyIerEJLXHziedo2basKbMKtTw3vfn5IzG0XTjhAVEJyNHnL2p7vc+wBDSdQuUpNw3M2u6xb9QsAY5Eg==}

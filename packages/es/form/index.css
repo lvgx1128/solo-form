@@ -14,7 +14,9 @@
 .solo-form-container .solo-form-item-box.solo-form-item-textarea {
   height: auto;
 }
-.solo-form-container .solo-form-item-box.solo-form-item-textarea .solo-form-item {
+.solo-form-container
+  .solo-form-item-box.solo-form-item-textarea
+  .solo-form-item {
   align-items: flex-start;
   height: auto;
 }
@@ -29,7 +31,8 @@
   border: 1px solid #d5dae5;
   border-radius: 2px;
 }
-.solo-form-container .solo-form-item.solo-form-item-border.solo-form-item-disabled {
+.solo-form-container
+  .solo-form-item.solo-form-item-border.solo-form-item-disabled {
   background: #f5f7fc;
 }
 .solo-form-container .solo-form-item.solo-form-item-border:hover {
@@ -65,7 +68,10 @@
   border: 1px solid #f2242e;
 }
 .solo-form-container .solo-form-item.solo-form-item-error-border .error-message,
-.solo-form-container .solo-form-item .solo-form-item-error-border .error-message {
+.solo-form-container
+  .solo-form-item
+  .solo-form-item-error-border
+  .error-message {
   position: absolute;
   bottom: -19px;
   left: -2px;
